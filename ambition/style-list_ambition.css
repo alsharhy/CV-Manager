@@ -1,0 +1,340 @@
+:root {
+  --primary-bg: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.92);
+  --accent-color: #3b82f6;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --ambition-color: #8b5cf6;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0c1a32 0%, #1a2b4d 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.ambitions-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.ambitions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.ambitions-header h2 {
+  color: var(--ambition-color);
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ambitions-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ambition-color), transparent);
+  border-radius: 3px;
+}
+
+.add-ambition-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, var(--ambition-color) 0%, #7c3aed 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+  font-size: 1.05rem;
+}
+
+.add-ambition-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.ambitions-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 50px;
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  width: 300px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.search-box button {
+  background: transparent;
+  border: none;
+  color: var(--ambition-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0 5px;
+}
+
+.ambitions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.ambition-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ambition-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.ambition-icon-container {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  overflow: hidden;
+}
+
+.ambition-icon {
+  width: 100px;
+  height: 100px;
+  background: var(--ambition-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  z-index: 2;
+}
+
+.ambition-icon-container::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.ambition-id {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--ambition-color);
+  color: white;
+  font-size: 0.85rem;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 3;
+}
+
+.ambition-content {
+  padding: 25px;
+}
+
+.ambition-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--ambition-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ambition-description {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.7;
+  min-height: 80px;
+}
+
+.ambition-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.action-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  border: none;
+  font-size: 1rem;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+  color: white;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, var(--danger-color) 0%, #b91c1c 100%);
+  color: white;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--ambition-color) 0%, #7c3aed 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+  margin: 40px auto 20px;
+  font-size: 1.05rem;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.empty-ambitions {
+  text-align: center;
+  padding: 50px 20px;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  border: 2px dashed rgba(148, 163, 184, 0.3);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.3);
+  grid-column: 1 / -1;
+}
+
+.empty-ambitions i {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .ambitions-container {
+    margin: 20px auto;
+    padding: 25px 20px;
+  }
+
+  .ambitions-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .ambitions-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .ambitions-header::after {
+    right: 50%;
+    transform: translateX(50%);
+    width: 150px;
+  }
+
+  .ambitions-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .ambitions-grid {
+    grid-template-columns: 1fr;
+  }
+}
